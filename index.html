@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panah Deskripsi - Media Pembelajaran Teks Deskripsi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="header">
+                <span class="target-icon">🎯</span>
+                <div class="header-badge">Media Pembelajaran Digital</div>
+                <h1><span>Panah</span> Deskripsi</h1>
+                <p>Bahasa Indonesia &middot; Teks Deskripsi &middot; Kelas VII SMP</p>
+            </div>
+
+            <div class="container">
+
+                <!-- HALAMAN UTAMA (MENU) -->
+                <div id="page-home" class="page active">
+                    <div class="section-card" style="text-align:center; padding: 3rem 1.5rem;">
+                        <div class="section-title"
+                            style="justify-content:center; font-size:1.8rem; margin-bottom: 2rem;">Menu Utama</div>
+                        <button class="start-btn" style="margin-bottom: 1rem;" onclick="showPage('materi')">📖 Baca
+                            Materi</button>
+                        <button class="start-btn"
+                            style="margin-bottom: 1rem; background: linear-gradient(135deg, #1E8449, #145A32);"
+                            onclick="showPage('kuis')">🎯 Kerjakan Soal</button>
+                        <button class="start-btn" style="background: linear-gradient(135deg, #D68910, #935116);"
+                            onclick="showPage('info')">ℹ️ Tentang Media</button>
+                    </div>
+                </div>
+
+                <!-- HALAMAN MATERI -->
+                <div id="page-materi" class="page">
+
+                    <div class="section-card">
+                        <div class="section-title">📘 Pengertian Teks Deskripsi</div>
+                        <div class="materi-body">
+                            <p>Teks deskripsi adalah <strong>teks yang menggambarkan suatu objek secara rinci</strong>
+                                sehingga
+                                pembaca seolah-olah dapat <em>melihat, mendengar, atau merasakan</em> objek tersebut.
+                            </p>
+                            <div class="highlight-box">
+                                💡 Tujuan: Membuat pembaca seakan hadir dan merasakan langsung objek yang
+                                dideskripsikan.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-title">✅ Ciri-ciri Teks Deskripsi</div>
+                        <div class="materi-body">
+                            <ul>
+                                <li>Menggambarkan objek secara <strong>rinci dan mendalam</strong></li>
+                                <li>Banyak menggunakan <strong>kata sifat</strong> (indah, bersih, harum, dll.)</li>
+                                <li>Menggunakan <strong>kata panca indera</strong> (terasa, terlihat, tercium,
+                                    terdengar, dll.)
+                                </li>
+                                <li>Membuat pembaca <strong>seolah-olah merasakan</strong> objek secara langsung</li>
+                                <li>Objek yang dideskripsikan bisa berupa orang, tempat, benda, atau hewan</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-title">🏗️ Struktur Teks Deskripsi</div>
+                        <div class="struct-grid">
+                            <div class="struct-item">
+                                <span class="struct-num">1</span>
+                                <span class="struct-label">Identifikasi</span>
+                                <p class="struct-desc">Pengenalan objek yang akan dideskripsikan</p>
+                            </div>
+                            <div class="struct-item">
+                                <span class="struct-num">2</span>
+                                <span class="struct-label">Deskripsi Bagian</span>
+                                <p class="struct-desc">Penjelasan rinci tentang bagian-bagian objek</p>
+                            </div>
+                            <div class="struct-item">
+                                <span class="struct-num">3</span>
+                                <span class="struct-label">Penutup / Kesan</span>
+                                <p class="struct-desc">Kesimpulan atau kesan terhadap objek</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-title">📄 Contoh Teks Deskripsi</div>
+                        <div class="materi-body">
+                            <p><strong>Ruang Kelasku</strong></p>
+                            <div class="highlight-box" style="font-style:normal; color:#3D2010;">
+                                Ruang kelas kami terlihat bersih dan rapi. Dindingnya berwarna putih cerah. Meja dan
+                                kursi
+                                tersusun teratur. Suasana kelas terasa nyaman untuk belajar.
+                            </div>
+                            <p>Perhatikan: teks di atas menggunakan kata sifat (<em>bersih, rapi, putih cerah, teratur,
+                                    nyaman</em>) dan memberi gambaran jelas tentang kelas tersebut.</p>
+                        </div>
+                    </div>
+
+                    <button class="start-btn" onclick="showPage('home')">🔙 Kembali ke Menu Utama</button>
+                </div>
+
+                <!-- HALAMAN KUIS -->
+                <div id="page-kuis" class="page">
+
+                    <div id="quiz-start">
+                        <div class="section-card" style="text-align:center; padding: 2.5rem 1.5rem;">
+                            <div style="font-size:64px; margin-bottom:14px;">🎯</div>
+                            <div class="section-title" style="justify-content:center; font-size:1.5rem;">Siap Memanah?
+                            </div>
+                            <div class="materi-body" style="margin-bottom:1.5rem; text-align:left;">
+                                <p>Kamu akan menjawab <strong>10 soal</strong> tentang Teks Deskripsi.</p>
+                                <p>Setiap soal punya waktu <strong>20 detik</strong>. Jawab dengan tepat untuk mendapat
+                                    poin!
+                                </p>
+                                <div class="highlight-box" style="margin-top:16px;">
+                                    🏆 Poin: Benar = +10 &nbsp;|&nbsp; Salah = +0 &nbsp;|&nbsp; Target: 100 poin!
+                                </div>
+                            </div>
+                            <button class="start-btn" style="margin-top:0; margin-bottom: 10px;"
+                                onclick="startQuiz()">🎯 Mulai Kuis!</button>
+                            <button class="start-btn"
+                                style="margin-top:0; background: linear-gradient(135deg, #8B1A1A, #5D1010);"
+                                onclick="showPage('home')">🔙 Kembali</button>
+                        </div>
+                    </div>
+
+                    <div id="quiz-play" style="display:none;">
+                        <div class="quiz-header">
+                            <div>
+                                <div class="q-progress">Soal</div>
+                                <div class="q-num" id="q-counter">1 / 10</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="prog-fill" style="width:10%;"></div>
+                                </div>
+                            </div>
+                            <div class="timer-ring" id="timer-ring">
+                                <div class="timer-circle" id="timer-circle">
+                                    <div class="timer-num" id="timer-display">20</div>
+                                    <div class="timer-label">detik</div>
+                                </div>
+                            </div>
+                            <div class="score-pill">
+                                <div class="s-val" id="score-display">0</div>
+                                <span class="s-lbl">Poin</span>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <span class="q-tag" id="q-tag">Soal 1</span>
+                            <div class="q-text" id="q-text"></div>
+                            <div class="options-list" id="options-list"></div>
+                            <div class="feedback-box" id="feedback-box"></div>
+                            <button class="next-btn" id="next-btn" onclick="nextQuestion()">Lanjut ➤</button>
+                        </div>
+                    </div>
+
+                    <div id="quiz-result" style="display:none;">
+                        <div class="result-page">
+                            <div class="target-result">
+                                <div class="target-rings">
+                                    <div class="ring r1"></div>
+                                    <div class="ring r2"></div>
+                                    <div class="ring r3"></div>
+                                    <div class="ring r4"></div>
+                                    <div class="ring r5"></div>
+                                </div>
+                                <div class="score-big" id="result-score-ring">0<br><span
+                                        style="font-size:0.7rem;">poin</span>
+                                </div>
+                            </div>
+                            <div class="result-title" id="result-title">Luar Biasa!</div>
+                            <div class="result-sub" id="result-sub">Panahmu tepat ke tengah sasaran!</div>
+                            <div class="stats-row">
+                                <div class="stat-card">
+                                    <div class="stat-val" id="res-benar">0</div>
+                                    <div class="stat-lbl">✅ Benar</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-val" id="res-salah">0</div>
+                                    <div class="stat-lbl">❌ Salah</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-val" id="res-skor">0</div>
+                                    <div class="stat-lbl">🏆 Skor</div>
+                                </div>
+                            </div>
+                            <div class="predikat-box">
+                                Predikat kamu: <span class="predikat" id="res-predikat">—</span>
+                            </div>
+                            <button class="retry-btn" onclick="resetQuiz()">🔄 Coba Lagi!</button>
+                            <button class="retry-btn"
+                                style="margin-top: 10px; background: linear-gradient(135deg, #8B1A1A, #5D1010);"
+                                onclick="showPage('home')">🔙 Menu Utama</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HALAMAN INFO -->
+                <div id="page-info" class="page">
+                    <div class="section-card">
+                        <div class="section-title">🎯 Tentang Media Ini</div>
+                        <div class="materi-body">
+                            <p><strong>Nama Media:</strong> Panah Deskripsi</p>
+                            <p><strong>Jenis:</strong> Media Pembelajaran Interaktif Digital</p>
+                            <p><strong>Mata Pelajaran:</strong> Bahasa Indonesia</p>
+                            <p><strong>Jenjang:</strong> SMP Kelas 7–9</p>
+                            <p><strong>Materi:</strong> Teks Deskripsi</p>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-title">🎓 Tujuan Pembelajaran</div>
+                        <div class="materi-body">
+                            <ol>
+                                <li>Memahami pengertian teks deskripsi</li>
+                                <li>Mengidentifikasi ciri-ciri teks deskripsi</li>
+                                <li>Menentukan struktur teks deskripsi</li>
+                                <li>Menyusun teks deskripsi sederhana dengan tepat</li>
+                                <li>Menyampaikan hasil deskripsi secara lisan maupun tulisan</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-title">👤 Identitas Pembuat</div>
+                        <div class="materi-body">
+                            <p><strong>Nama:</strong> Ferrosita Fina Imatin</p>
+                            <p><strong>Kelas:</strong> 4D</p>
+                            <p><strong>NIM:</strong> 240621100139</p>
+                        </div>
+                    </div>
+                    <button class="start-btn" onclick="showPage('home')">🔙 Kembali ke Menu Utama</button>
+                </div>
+
+            </div><!-- end .container -->
+
+    <script src="script.js"></script>
+</body>
+</html>
