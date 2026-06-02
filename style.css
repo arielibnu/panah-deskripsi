@@ -6,13 +6,13 @@
 
         body {
             font-family: 'Nunito', sans-serif;
-            background: #FFF8F0;
+            background: #F8FAFC;
             min-height: 100vh;
-            color: #2C1A0E;
+            color: #1E293B;
         }
 
         .header {
-            background: linear-gradient(135deg, #C0392B 0%, #8B1A1A 50%, #5D1010 100%);
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #DB2777 100%);
             padding: 2rem 1rem 2.5rem;
             text-align: center;
             position: relative;
@@ -46,7 +46,7 @@
         .header-badge {
             display: inline-block;
             background: rgba(255, 255, 255, 0.15);
-            color: #FFD700;
+            color: #FDE047;
             font-size: 12px;
             font-weight: 700;
             letter-spacing: 2px;
@@ -74,7 +74,7 @@
         }
 
         .header h1 span {
-            color: #FFD700;
+            color: #FDE047;
         }
 
         .header p {
@@ -85,8 +85,8 @@
 
         .nav {
             display: flex;
-            background: #8B1A1A;
-            border-bottom: 3px solid #FFD700;
+            background: #4338CA;
+            border-bottom: 3px solid #FDE047;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -108,8 +108,8 @@
         }
 
         .nav-btn.active {
-            color: #FFD700;
-            border-bottom-color: #FFD700;
+            color: #FDE047;
+            border-bottom-color: #FDE047;
             background: rgba(255, 215, 0, 0.08);
         }
 
@@ -138,14 +138,14 @@
             border-radius: 14px;
             padding: 1.5rem;
             margin-bottom: 1.25rem;
-            border: 1.5px solid #F0E0D0;
-            box-shadow: 0 2px 8px rgba(139, 26, 26, 0.06);
+            border: 1.5px solid #E2E8F0;
+            box-shadow: 0 2px 8px rgba(67, 56, 202, 0.06);
         }
 
         .section-title {
             font-family: 'Fredoka One', sans-serif;
             font-size: 1.2rem;
-            color: #C0392B;
+            color: #4F46E5;
             margin-bottom: 0.9rem;
             display: flex;
             align-items: center;
@@ -155,11 +155,11 @@
         .materi-body {
             font-size: 15px;
             line-height: 1.8;
-            color: #3D2010;
+            color: #334155;
         }
 
         .materi-body strong {
-            color: #8B1A1A;
+            color: #4338CA;
         }
 
         .materi-body ul {
@@ -185,13 +185,13 @@
         }
 
         .highlight-box {
-            background: #FFF3CD;
-            border-left: 4px solid #FFD700;
+            background: #EEF2FF;
+            border-left: 4px solid #FDE047;
             border-radius: 0 10px 10px 0;
             padding: 12px 16px;
             margin: 14px 0;
             font-size: 14px;
-            color: #5A3E00;
+            color: #3730A3;
             font-style: italic;
         }
 
@@ -203,8 +203,8 @@
         }
 
         .struct-item {
-            background: #FFF0EE;
-            border: 1.5px solid #F5C0B0;
+            background: #EEF2FF;
+            border: 1.5px solid #C7D2FE;
             border-radius: 12px;
             padding: 12px 10px;
             text-align: center;
@@ -213,20 +213,20 @@
         .struct-num {
             font-family: 'Fredoka One', sans-serif;
             font-size: 1.6rem;
-            color: #C0392B;
+            color: #4F46E5;
             display: block;
         }
 
         .struct-label {
             font-weight: 800;
-            color: #8B1A1A;
+            color: #4338CA;
             display: block;
             font-size: 12px;
             margin-top: 4px;
         }
 
         .struct-desc {
-            color: #6B3020;
+            color: #475569;
             font-size: 11px;
             margin-top: 6px;
             line-height: 1.4;
@@ -236,8 +236,8 @@
             display: block;
             width: 100%;
             padding: 18px;
-            background: linear-gradient(135deg, #C0392B, #8B1A1A);
-            color: #FFD700;
+            background: linear-gradient(135deg, #4F46E5, #4338CA);
+            color: #FDE047;
             font-family: 'Fredoka One', sans-serif;
             font-size: 1.4rem;
             border: none;
@@ -246,13 +246,13 @@
             text-align: center;
             margin-top: 1.25rem;
             letter-spacing: 1px;
-            box-shadow: 0 4px 16px rgba(139, 26, 26, 0.3);
+            box-shadow: 0 4px 16px rgba(67, 56, 202, 0.3);
             transition: transform 0.15s, box-shadow 0.15s;
         }
 
         .start-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 26, 26, 0.4);
+            box-shadow: 0 6px 20px rgba(67, 56, 202, 0.4);
         }
 
         .start-btn:active {
@@ -261,7 +261,7 @@
 
         /* QUIZ */
         .quiz-header {
-            background: linear-gradient(135deg, #8B1A1A, #5D1010);
+            background: linear-gradient(135deg, #4338CA, #312E81);
             border-radius: 14px;
             padding: 1.25rem;
             color: #fff;
@@ -279,7 +279,7 @@
         .q-num {
             font-family: 'Fredoka One', sans-serif;
             font-size: 1.8rem;
-            color: #FFD700;
+            color: #FDE047;
             line-height: 1;
         }
 
@@ -294,7 +294,7 @@
             height: 62px;
             border-radius: 50%;
             border: 3px solid rgba(255, 255, 255, 0.2);
-            border-top-color: #FFD700;
+            border-top-color: #FDE047;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -304,7 +304,7 @@
         .timer-num {
             font-family: 'Fredoka One', sans-serif;
             font-size: 1.3rem;
-            color: #FFD700;
+            color: #FDE047;
             line-height: 1;
         }
 
@@ -324,7 +324,7 @@
         .score-pill .s-val {
             font-family: 'Fredoka One', sans-serif;
             font-size: 1.5rem;
-            color: #FFD700;
+            color: #FDE047;
         }
 
         .score-pill .s-lbl {
@@ -344,7 +344,7 @@
 
         .progress-fill {
             height: 100%;
-            background: #FFD700;
+            background: #FDE047;
             border-radius: 10px;
             transition: width 0.4s ease;
         }
@@ -354,26 +354,26 @@
             border-radius: 14px;
             padding: 1.5rem;
             margin-bottom: 1.25rem;
-            border: 1.5px solid #F0E0D0;
-            box-shadow: 0 2px 12px rgba(139, 26, 26, 0.08);
+            border: 1.5px solid #E2E8F0;
+            box-shadow: 0 2px 12px rgba(67, 56, 202, 0.08);
         }
 
         .q-tag {
             display: inline-block;
-            background: #FFF0EE;
-            color: #C0392B;
+            background: #EEF2FF;
+            color: #4F46E5;
             font-size: 12px;
             font-weight: 800;
             padding: 4px 12px;
             border-radius: 20px;
-            border: 1px solid #F5C0B0;
+            border: 1px solid #C7D2FE;
             margin-bottom: 12px;
         }
 
         .q-text {
             font-size: 16px;
             font-weight: 700;
-            color: #2C1A0E;
+            color: #1E293B;
             line-height: 1.6;
             margin-bottom: 1.25rem;
         }
@@ -389,22 +389,22 @@
             align-items: center;
             gap: 12px;
             padding: 14px 16px;
-            background: #FFF8F5;
-            border: 2px solid #EDD5C5;
+            background: #F8FAFC;
+            border: 2px solid #E2E8F0;
             border-radius: 12px;
             cursor: pointer;
             font-family: 'Nunito', sans-serif;
             font-size: 14px;
             font-weight: 600;
-            color: #3D2010;
+            color: #334155;
             text-align: left;
             transition: all 0.15s;
             width: 100%;
         }
 
         .option-btn:hover:not(:disabled) {
-            border-color: #C0392B;
-            background: #FFF0EE;
+            border-color: #4F46E5;
+            background: #EEF2FF;
             transform: translateX(4px);
         }
 
@@ -412,8 +412,8 @@
             min-width: 32px;
             height: 32px;
             border-radius: 50%;
-            background: #EDD5C5;
-            color: #8B1A1A;
+            background: #E2E8F0;
+            color: #4338CA;
             font-weight: 800;
             font-size: 14px;
             display: flex;
@@ -482,7 +482,7 @@
             width: 100%;
             margin-top: 14px;
             padding: 14px;
-            background: #C0392B;
+            background: #4F46E5;
             color: #fff;
             font-family: 'Fredoka One', sans-serif;
             font-size: 1.2rem;
@@ -498,7 +498,7 @@
         }
 
         .next-btn:hover {
-            background: #8B1A1A;
+            background: #4338CA;
         }
 
         /* RESULT */
@@ -531,13 +531,13 @@
         .r1 {
             width: 150px;
             height: 150px;
-            background: #FFD700;
+            background: #FDE047;
         }
 
         .r2 {
             width: 116px;
             height: 116px;
-            background: #C0392B;
+            background: #4F46E5;
         }
 
         .r3 {
@@ -549,13 +549,13 @@
         .r4 {
             width: 52px;
             height: 52px;
-            background: #C0392B;
+            background: #4F46E5;
         }
 
         .r5 {
             width: 22px;
             height: 22px;
-            background: #2C1A0E;
+            background: #1E293B;
         }
 
         .score-big {
@@ -575,13 +575,13 @@
         .result-title {
             font-family: 'Fredoka One', sans-serif;
             font-size: 2rem;
-            color: #C0392B;
+            color: #4F46E5;
             margin-bottom: 6px;
         }
 
         .result-sub {
             font-size: 15px;
-            color: #6B3020;
+            color: #475569;
             margin-bottom: 1.75rem;
         }
 
@@ -594,7 +594,7 @@
 
         .stat-card {
             background: #fff;
-            border: 1.5px solid #F0E0D0;
+            border: 1.5px solid #E2E8F0;
             border-radius: 14px;
             padding: 14px 8px;
             text-align: center;
@@ -603,12 +603,12 @@
         .stat-val {
             font-family: 'Fredoka One', sans-serif;
             font-size: 1.8rem;
-            color: #C0392B;
+            color: #4F46E5;
         }
 
         .stat-lbl {
             font-size: 11px;
-            color: #8B4020;
+            color: #475569;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -616,20 +616,20 @@
         }
 
         .predikat-box {
-            background: linear-gradient(135deg, #FFF3CD, #FFECB3);
-            border: 2px solid #FFD700;
+            background: linear-gradient(135deg, #EEF2FF, #E0E7FF);
+            border: 2px solid #FDE047;
             border-radius: 14px;
             padding: 1.25rem;
             margin-bottom: 1.25rem;
             font-weight: 700;
             font-size: 16px;
-            color: #5A3E00;
+            color: #3730A3;
         }
 
         .predikat-box .predikat {
             font-family: 'Fredoka One', sans-serif;
             font-size: 1.6rem;
-            color: #8B1A1A;
+            color: #4338CA;
             display: block;
             margin-top: 4px;
         }
@@ -638,14 +638,14 @@
             display: block;
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, #C0392B, #8B1A1A);
-            color: #FFD700;
+            background: linear-gradient(135deg, #4F46E5, #4338CA);
+            color: #FDE047;
             font-family: 'Fredoka One', sans-serif;
             font-size: 1.3rem;
             border: none;
             border-radius: 14px;
             cursor: pointer;
-            box-shadow: 0 4px 14px rgba(139, 26, 26, 0.3);
+            box-shadow: 0 4px 14px rgba(67, 56, 202, 0.3);
             transition: transform 0.15s;
         }
 

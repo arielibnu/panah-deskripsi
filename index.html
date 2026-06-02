@@ -15,11 +15,19 @@
 <body>
 
     <div class="header">
+        <div class="logos-container" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+            <!-- Logo 1 -->
+            <img src="utm.jpeg" style="height: 65px; object-fit: contain; background: white; padding: 6px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <!-- Logo 2 -->
+            <img src="fkip.png" style="height: 65px; object-fit: contain; background: white; padding: 6px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <!-- Logo 3 -->
+            <img src="pbsi.png" style="height: 65px; object-fit: contain; background: white; padding: 6px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+        </div>
                 <span class="target-icon">🎯</span>
                 <div class="header-badge">Media Pembelajaran Digital</div>
                 <h1><span>Panah</span> Deskripsi</h1>
                 <p>Bahasa Indonesia &middot; Teks Deskripsi &middot; Kelas VII SMP</p>
-            </div>
+            </div> 
 
             <div class="container">
 
@@ -31,9 +39,9 @@
                         <button class="start-btn" style="margin-bottom: 1rem;" onclick="showPage('materi')">📖 Baca
                             Materi</button>
                         <button class="start-btn"
-                            style="margin-bottom: 1rem; background: linear-gradient(135deg, #1E8449, #145A32);"
+                            style="margin-bottom: 1rem; background: linear-gradient(135deg, #10B981, #059669); color: white;"
                             onclick="showPage('kuis')">🎯 Kerjakan Soal</button>
-                        <button class="start-btn" style="background: linear-gradient(135deg, #D68910, #935116);"
+                        <button class="start-btn" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white;"
                             onclick="showPage('info')">ℹ️ Tentang Media</button>
                     </div>
                 </div>
@@ -152,7 +160,7 @@
                             <button class="start-btn" style="margin-top:0; margin-bottom: 10px;"
                                 onclick="startQuiz()">🎯 Mulai Kuis!</button>
                             <button class="start-btn"
-                                style="margin-top:0; background: linear-gradient(135deg, #8B1A1A, #5D1010);"
+                                style="margin-top:0; background: linear-gradient(135deg, #4338CA, #312E81); color: white;"
                                 onclick="showPage('home')">🔙 Kembali</button>
                         </div>
                     </div>
@@ -222,7 +230,7 @@
                             </div>
                             <button class="retry-btn" onclick="resetQuiz()">🔄 Coba Lagi!</button>
                             <button class="retry-btn"
-                                style="margin-top: 10px; background: linear-gradient(135deg, #8B1A1A, #5D1010);"
+                                style="margin-top: 10px; background: linear-gradient(135deg, #4338CA, #312E81); color: white;"
                                 onclick="showPage('home')">🔙 Menu Utama</button>
                         </div>
                     </div>
