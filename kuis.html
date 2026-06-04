@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis - Panah Deskripsi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background: var(--bg-main); min-height: 100vh; display: flex; flex-direction: column;">
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Panah<span>Deskripsi</span></a>
+            <div class="nav-links">
+                <a href="index.html">🔙 Kembali ke Materi</a>
+            </div>
+            <div class="nav-logos">
+                <img src="assets/utm.png" alt="UTM">
+                <img src="assets/fkip.png" alt="FKIP">
+                <img src="assets/pbsi.png" alt="PBSI">
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="flex: 1; display: flex; align-items: center; justify-content: center; padding-top: 6rem; padding-bottom: 2rem;">
+        <section id="kuis" style="width: 100%; max-width: 800px; margin: 0 auto;">
+            <!-- QUIZ START -->
+            <div id="quiz-start" class="card text-center" style="padding: 4rem 2rem;">
+                <div style="font-size:72px; margin-bottom:20px;">🏹</div>
+                <h3 style="font-size:1.75rem; margin-bottom: 1rem;">Siap Memanah?</h3>
+                <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                    Kamu akan menjawab <strong>25 soal</strong> tentang Teks Deskripsi. Setiap soal punya waktu <strong>20 detik</strong>. Jawaban tidak bisa diulang. Pastikan kamu tidak mencontek materi ya!
+                </p>
+                <div class="highlight-box" style="margin: 0 auto 2rem; max-width: 400px; display: inline-block;">
+                    🏆 Poin: Benar = +4 &nbsp;|&nbsp; Salah = +0 &nbsp;|&nbsp; Target: 100 poin
+                </div>
+                <br>
+                <div style="display: flex; gap: 12px; justify-content: center;">
+                    <a href="index.html" class="btn-secondary" style="color: var(--text-main); border-color: var(--border-color);">🔙 Kembali</a>
+                    <button class="btn-primary" onclick="startQuiz()">🎯 Mulai Kuis Sekarang!</button>
+                </div>
+            </div>
+
+            <!-- QUIZ PLAY -->
+            <div id="quiz-play" style="display:none;">
+                <div class="quiz-header">
+                    <div>
+                        <div class="q-progress">Soal</div>
+                        <div class="q-num" id="q-counter">1 / 25</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="prog-fill" style="width:4%;"></div>
+                        </div>
+                    </div>
+                    <div class="timer-ring" id="timer-ring">
+                        <div class="timer-circle" id="timer-circle">
+                            <div class="timer-num" id="timer-display">20</div>
+                            <div class="timer-label">detik</div>
+                        </div>
+                    </div>
+                    <div class="score-pill">
+                        <div class="s-val" id="score-display">0</div>
+                        <span class="s-lbl">Poin</span>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <span class="q-tag" id="q-tag">Soal 1</span>
+                    <div class="q-text" id="q-text"></div>
+                    <div class="options-list" id="options-list"></div>
+                    <div class="feedback-box" id="feedback-box"></div>
+                    <button class="next-btn" id="next-btn" onclick="nextQuestion()">Lanjut ➤</button>
+                </div>
+            </div>
+
+            <!-- QUIZ RESULT -->
+            <div id="quiz-result" style="display:none;">
+                <div class="result-page card">
+                    <div class="target-result">
+                        <div class="score-big" id="result-score-ring">0<br><span style="font-size:1rem; color: var(--text-muted); font-family: 'Inter', sans-serif; font-weight: 500;">poin</span></div>
+                    </div>
+                    <div class="result-title" id="result-title">Luar Biasa!</div>
+                    <div class="result-sub" id="result-sub">Panahmu tepat ke tengah sasaran!</div>
+                    <div class="stats-row">
+                        <div class="stat-card">
+                            <div class="stat-val" id="res-benar">0</div>
+                            <div class="stat-lbl">✅ Benar</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-val" id="res-salah">0</div>
+                            <div class="stat-lbl">❌ Salah</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-val" id="res-skor" style="color: var(--primary);">0</div>
+                            <div class="stat-lbl" style="color: var(--primary);">🏆 Skor</div>
+                        </div>
+                    </div>
+                    <div class="predikat-box">
+                        Predikat kamu: <span class="predikat" id="res-predikat">—</span>
+                    </div>
+                    <div style="display: flex; gap: 12px; justify-content: center; flex-direction: column;">
+                        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="resetQuiz()">🔄 Coba Lagi Kuis!</button>
+                        <a href="index.html" class="btn-secondary" style="width: 100%; color: var(--text-main); border-color: var(--border-color); justify-content: center;">🔙 Kembali ke Materi</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
