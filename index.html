@@ -18,6 +18,7 @@
             <div class="nav-brand">Panah<span>Deskripsi</span></div>
             <div class="nav-links">
                 <a href="#materi">Materi</a>
+                <a href="#games">🎮 Games</a>
                 <a href="kuis.html">Kuis</a>
             </div>
             <div class="nav-logos">
@@ -130,31 +131,213 @@
         </section>
 
         <!-- KUIS SECTION DIPINDAHKAN KE HALAMAN kuis.html -->
+
+        <!-- ===== GAMES SECTION ===== -->
+        <section id="games" class="section">
+            <div class="section-header">
+                <h2>🎮 Arena Belajar</h2>
+                <p class="section-subtitle">Asah pemahamanmu lewat mini-game seru &amp; interaktif!</p>
+            </div>
+
+            <!-- XP Profile Card -->
+            <div class="xp-profile-card">
+                <div class="xp-profile-avatar" id="xp-emoji-main">🌱</div>
+                <div class="xp-profile-info">
+                    <div class="xp-profile-level" id="xp-level-main">🌱 Pemula</div>
+                    <div class="xp-profile-pts"><span id="xp-total-main">0</span> XP Total</div>
+                    <div class="xp-track-wrap">
+                        <div class="xp-track-fill" id="xp-track-fill" style="width:0%"></div>
+                    </div>
+                    <div class="xp-track-label" id="xp-track-label">0 / 50 XP ke level berikutnya</div>
+                </div>
+                <div class="xp-badges-mini" id="xp-badges-mini"></div>
+            </div>
+
+            <!-- Games Grid -->
+            <div class="games-grid">
+                <div class="game-card" onclick="openGame('scramble')">
+                    <div class="game-card-icon">🔤</div>
+                    <div class="game-card-content">
+                        <div class="game-card-title">Word Scramble</div>
+                        <div class="game-card-desc">Susun huruf acak menjadi kata kunci teks deskripsi yang tepat!</div>
+                        <div class="game-card-reward">+10 XP per kata &middot; 10 soal</div>
+                    </div>
+                    <div class="game-card-arrow">&rsaquo;</div>
+                </div>
+
+                <div class="game-card" onclick="openGame('memory')">
+                    <div class="game-card-icon">🃏</div>
+                    <div class="game-card-content">
+                        <div class="game-card-title">Memory Match</div>
+                        <div class="game-card-desc">Cocokkan istilah dengan definisinya dalam waktu secepat mungkin!</div>
+                        <div class="game-card-reward">+20–50 XP + bonus kecepatan</div>
+                    </div>
+                    <div class="game-card-arrow">&rsaquo;</div>
+                </div>
+
+                <div class="game-card" onclick="openGame('drag')">
+                    <div class="game-card-icon">🎯</div>
+                    <div class="game-card-content">
+                        <div class="game-card-title">Susun Struktur</div>
+                        <div class="game-card-desc">Susun bagian-bagian teks deskripsi ke urutan yang benar!</div>
+                        <div class="game-card-reward">+30 XP per tantangan</div>
+                    </div>
+                    <div class="game-card-arrow">&rsaquo;</div>
+                </div>
+
+                <div class="game-card badge-display-card" onclick="openGame('badges')">
+                    <div class="game-card-icon">🏆</div>
+                    <div class="game-card-content">
+                        <div class="game-card-title">Koleksi Badge</div>
+                        <div class="game-card-desc">Lihat semua pencapaian dan badge yang sudah kamu raih!</div>
+                        <div class="game-card-reward"><span id="badge-earned-count">0</span>/8 Badge Terkumpul</div>
+                    </div>
+                    <div class="game-card-arrow">&rsaquo;</div>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- ====== WORD SCRAMBLE MODAL ====== -->
+    <div class="game-modal" id="modal-scramble" style="display:none;">
+        <div class="game-modal-overlay" onclick="closeGame('scramble')"></div>
+        <div class="game-modal-inner">
+            <div class="modal-topbar">
+                <div class="modal-topbar-title">🔤 Word Scramble</div>
+                <button class="modal-close-btn" onclick="closeGame('scramble')">✕</button>
+            </div>
+            <div id="sc-game-body">
+                <div class="sc-stats-bar">
+                    <div>Kata <strong id="sc-word-num">1</strong>/10</div>
+                    <div class="sc-clock" id="sc-clock">⏱ <span id="sc-timer">30</span>s</div>
+                    <div>XP: <strong id="sc-xp-num">0</strong></div>
+                </div>
+                <div class="sc-hint-box" id="sc-hint-box">
+                    <span class="sc-hint-label">💡 Petunjuk:</span>
+                    <span id="sc-hint-text"></span>
+                </div>
+                <div class="sc-scrambled-area" id="sc-scrambled-area"></div>
+                <div class="sc-answer-label">Jawaban kamu (klik huruf di atas, klik jawaban untuk kembali):</div>
+                <div class="sc-answer-area" id="sc-answer-area"></div>
+                <div class="sc-feedback" id="sc-feedback"></div>
+                <div class="sc-actions">
+                    <button class="btn-secondary sc-btn" onclick="scClear()">🗑 Hapus</button>
+                    <button class="btn-secondary sc-btn" onclick="scSkip()">⏭ Skip</button>
+                    <button class="btn-primary sc-btn" onclick="scCheck()">✅ Cek</button>
+                </div>
+            </div>
+            <div id="sc-result-body" style="display:none;"></div>
+        </div>
+    </div>
+
+    <!-- ====== MEMORY MATCH MODAL ====== -->
+    <div class="game-modal" id="modal-memory" style="display:none;">
+        <div class="game-modal-overlay" onclick="closeGame('memory')"></div>
+        <div class="game-modal-inner game-modal-wide">
+            <div class="modal-topbar">
+                <div class="modal-topbar-title">🃏 Memory Match</div>
+                <button class="modal-close-btn" onclick="closeGame('memory')">✕</button>
+            </div>
+            <div class="mem-stats-bar">
+                <div class="mem-stat">✅ Cocok: <strong id="mem-matched">0</strong>/8</div>
+                <div class="mem-stat">❌ Salah: <strong id="mem-wrong">0</strong></div>
+                <div class="mem-stat">⏱ <strong id="mem-time">0</strong>s</div>
+            </div>
+            <div class="memory-board" id="memory-board"></div>
+        </div>
+    </div>
+
+    <!-- ====== DRAG & DROP MODAL ====== -->
+    <div class="game-modal" id="modal-drag" style="display:none;">
+        <div class="game-modal-overlay" onclick="closeGame('drag')"></div>
+        <div class="game-modal-inner">
+            <div class="modal-topbar">
+                <div class="modal-topbar-title">🎯 Susun Struktur</div>
+                <button class="modal-close-btn" onclick="closeGame('drag')">✕</button>
+            </div>
+            <div style="padding: 1rem 1.5rem 0;">
+                <div style="font-weight:800;font-size:1rem;font-family:'Outfit',sans-serif;color:var(--text-main);margin-bottom:4px;" id="drag-challenge-title">Struktur Teks Deskripsi</div>
+                <p style="color:var(--text-muted);font-size:0.875rem;line-height:1.6;margin:0;" id="drag-instruction">Urutkan bagian-bagian teks deskripsi dari awal hingga akhir!</p>
+            </div>
+            <div class="drag-game-area">
+                <div>
+                    <div class="drag-col-label">📦 Blok Tersedia</div>
+                    <div id="drag-source" class="drag-source"></div>
+                </div>
+                <div>
+                    <div class="drag-col-label">🎯 Urutan Benar (1 &rarr; 3)</div>
+                    <div id="drag-target" class="drag-target"></div>
+                </div>
+            </div>
+            <div class="drag-feedback" id="drag-feedback"></div>
+            <div class="drag-actions">
+                <button class="btn-secondary" onclick="resetDragGame()">🔄 Ulang</button>
+                <button class="btn-primary" onclick="checkDragGame()">✅ Cek Urutan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== BADGE COLLECTION MODAL ====== -->
+    <div class="game-modal" id="modal-badges" style="display:none;">
+        <div class="game-modal-overlay" onclick="closeGame('badges')"></div>
+        <div class="game-modal-inner">
+            <div class="modal-topbar">
+                <div class="modal-topbar-title">🏆 Koleksi Badge</div>
+                <button class="modal-close-btn" onclick="closeGame('badges')">✕</button>
+            </div>
+            <div class="badge-xp-card">
+                <div class="badge-xp-emoji" id="bdg-emoji">🌱</div>
+                <div>
+                    <div class="badge-xp-level" id="bdg-level">🌱 Pemula</div>
+                    <div class="badge-xp-pts"><span id="bdg-xp">0</span> XP Total</div>
+                </div>
+            </div>
+            <div class="badge-grid" id="badge-grid"></div>
+            <div style="text-align:center;padding:0.5rem 1.5rem 1.5rem;">
+                <button class="btn-secondary" style="font-size:0.85rem;justify-content:center;" onclick="confirmReset()">🗑️ Reset Progress</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- XP Toast Notification -->
+    <div class="xp-toast" id="xp-toast"></div>
+
+    <!-- XP Widget (Fixed) -->
+    <div class="xp-widget" id="xp-widget" onclick="openGame('badges')" title="Klik untuk lihat badge">
+        <div class="xp-widget-emoji" id="xp-widget-emoji">🌱</div>
+        <div class="xp-widget-info">
+            <div class="xp-widget-level" id="xp-widget-level">Pemula</div>
+            <div class="xp-widget-bar">
+                <div class="xp-widget-fill" id="xp-widget-fill" style="width:0%"></div>
+            </div>
+            <div class="xp-widget-pts" id="xp-widget-pts">0 XP</div>
+        </div>
+    </div>
+
     <footer class="footer">
-        <div class="container footer-grid">
+        <div class="container footer-grid footer-2col">
             <div class="footer-col">
                 <h4>🎯 Tentang Media</h4>
                 <p><strong>Media:</strong> Panah Deskripsi</p>
                 <p><strong>Mata Pelajaran:</strong> Bahasa Indonesia</p>
-                <p><strong>Jenjang:</strong> SMP Kelas 7–9</p>
+                <p><strong>Jenjang:</strong> SMP Kelas 7</p>
                 <p><strong>Materi:</strong> Teks Deskripsi</p>
-            </div>
-            <div class="footer-col">
-                <h4>🎓 Tujuan Pembelajaran</h4>
-                <ul class="footer-list">
-                    <li>Memahami pengertian & ciri teks deskripsi</li>
-                    <li>Menentukan struktur teks deskripsi</li>
-                    <li>Menyusun teks deskripsi sederhana</li>
-                    <li>Menyampaikan hasil deskripsi secara tulisan</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>👤 Identitas Pembuat</h4>
+
+                <h4 style="margin-top: 2rem;">👤 Identitas Pembuat</h4>
                 <p><strong>Nama:</strong> Ferrosita Fina Imatin</p>
                 <p><strong>Kelas:</strong> 4D</p>
                 <p><strong>NIM:</strong> 240621100139</p>
+            </div>
+            <div class="footer-col">
+                <h4>🎓 Tujuan Pembelajaran</h4>
+                <ul class="footer-list split-2">
+                    <li>Siswa mampu mengidentifikasi ciri-ciri, struktur, dan kaidah kebahasaan teks deskripsi melalui materi yang tersedia pada website.</li>
+                    <li>Siswa mampu menganalisis unsur-unsur yang terdapat dalam teks deskripsi berdasarkan contoh yang disajikan pada website.</li>
+                    <li>Siswa mampu menjawab soal-soal tentang teks deskripsi yang tersedia pada website dengan tepat dalam batas waktu yang telah ditentukan.</li>
+                    <li>Siswa mampu menunjukkan pemahaman materi melalui partisipasi aktif dalam game atau kuis yang terdapat pada website.</li>
+                    <li>Siswa mampu menyusun teks deskripsi sederhana sesuai dengan struktur dan kaidah kebahasaan yang benar.</li>
+                    <li>Siswa mampu mencapai nilai minimal yang telah ditetapkan pada latihan soal dan kuis sebagai indikator penguasaan materi.</li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
