@@ -435,6 +435,7 @@ const SC_WORDS = [
 let scInterval = null, scTimeLeft = 30, scWordIdx = 0, scXpEarned = 0;
 let scCurrentWord = '', scScrambled = [], scAnswer = [], scUsed = [];
 let scAllCorrect = true, scWordList = [];
+let scLocked = false;
 
 function shuffleArr(arr) {
     const a = [...arr];
@@ -466,6 +467,7 @@ function loadScrambleWord() {
     if (scWordIdx >= SC_WORDS.length) { clearInterval(scInterval); showScrambleResult(); return; }
     clearInterval(scInterval);
     scTimeLeft = 30;
+    scLocked = false;
     const wObj = scWordList[scWordIdx];
     scCurrentWord  = wObj.word;
     scScrambled    = scrambleLetters(scCurrentWord);
@@ -520,7 +522,7 @@ function renderScrambleTiles() {
 }
 
 function scPickLetter(tileIdx) {
-    if (scUsed[tileIdx]) return;
+    if (scLocked || scUsed[tileIdx]) return;
     const emptySlot = scAnswer.indexOf('');
     if (emptySlot === -1) return;
     scAnswer[emptySlot] = scScrambled[tileIdx];
@@ -529,6 +531,7 @@ function scPickLetter(tileIdx) {
 }
 
 function scReturnLetter(slotIdx) {
+    if (scLocked) return;
     const letter = scAnswer[slotIdx];
     if (!letter) return;
     const tileIdx = scScrambled.findIndex((l, i) => scUsed[i] && l === letter);
@@ -539,6 +542,7 @@ function scReturnLetter(slotIdx) {
 }
 
 function scClear() {
+    if (scLocked) return;
     scUsed   = new Array(scScrambled.length).fill(false);
     scAnswer = new Array(scCurrentWord.length).fill('');
     renderScrambleTiles();
@@ -546,6 +550,8 @@ function scClear() {
 }
 
 function scSkip() {
+    if (scLocked) return;
+    scLocked = true;
     clearInterval(scInterval);
     scAllCorrect = false;
     setScFeedback('\u23ed Dilewati. Jawaban: ' + scCurrentWord, false);
@@ -553,8 +559,10 @@ function scSkip() {
 }
 
 function scCheck() {
+    if (scLocked) return;
     const ans = scAnswer.join('');
-    if (ans.includes('')) { setScFeedback('\u26a0\ufe0f Susun semua huruf dulu ya!', null); return; }
+    if (scAnswer.includes('')) { setScFeedback('\u26a0\ufe0f Susun semua huruf dulu ya!', null); return; }
+    scLocked = true;
     clearInterval(scInterval);
     if (ans === scCurrentWord) {
         scXpEarned += 10;
@@ -740,6 +748,7 @@ const DRAG_CHALLENGES = [
 
 let dragChalIdx = 0, dragSelected = null, dragSlots = [null, null, null];
 let dragSourceItems = [];
+let dragLocked = false;
 
 function initDrag() {
     dragChalIdx = 0;
@@ -749,6 +758,7 @@ function initDrag() {
 function loadDragChallenge() {
     dragSelected = null;
     dragSlots = [null, null, null];
+    dragLocked = false;
     const ch = DRAG_CHALLENGES[dragChalIdx % DRAG_CHALLENGES.length];
     dragSourceItems = shuffleArr([...ch.items]);
     const setEl = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
@@ -799,7 +809,7 @@ function renderDragGame() {
 }
 
 function placeDragItem(slotIdx) {
-    if (!dragSelected) return;
+    if (dragLocked || !dragSelected) return;
     dragSlots[slotIdx] = dragSelected;
     dragSelected = null;
     setDragFeedback('', null);
@@ -807,12 +817,14 @@ function placeDragItem(slotIdx) {
 }
 
 function returnDragItem(slotIdx) {
+    if (dragLocked) return;
     dragSlots[slotIdx] = null;
     setDragFeedback('', null);
     renderDragGame();
 }
 
 function resetDragGame() {
+    if (dragLocked) return;
     dragSelected = null;
     dragSlots = [null, null, null];
     setDragFeedback('', null);
@@ -820,10 +832,12 @@ function resetDragGame() {
 }
 
 function checkDragGame() {
+    if (dragLocked) return;
     if (dragSlots.some(s => s === null)) {
         setDragFeedback('\u26a0\ufe0f Tempatkan semua 3 blok dulu ya!', null);
         return;
     }
+    dragLocked = true;
     const correct = dragSlots.every((item, i) => item.order === i);
     if (correct) {
         setDragFeedback('\u2705 Urutan benar! Hebat! +30 XP', true);
@@ -836,13 +850,17 @@ function checkDragGame() {
             } else {
                 setDragFeedback('\ud83c\udf89 Semua tantangan selesai! Kamu luar biasa!', true);
                 dragChalIdx = 0; // Reset for replay
+                dragLocked = false;
             }
         }, 2000);
     } else {
         setDragFeedback('\u274c Urutan belum tepat. Coba lagi!', false);
         const ch = DRAG_CHALLENGES[dragChalIdx % DRAG_CHALLENGES.length];
         const correctOrder = [...ch.items].sort((a, b) => a.order - b.order).map(i => i.title).join(' \u2192 ');
-        setTimeout(() => setDragFeedback('Urutan yang benar: ' + correctOrder, false), 1500);
+        setTimeout(() => {
+            setDragFeedback('Urutan yang benar: ' + correctOrder, false);
+            dragLocked = false;
+        }, 1500);
     }
 }
 
